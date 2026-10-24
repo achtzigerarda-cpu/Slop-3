@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHAPEWORKS — Transform the way your team works</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root { --red:#d93025; --blue:#1f3fd1; --yellow:#f2c14e; --black:#111; --white:#fff; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"Outfit",sans-serif; background:var(--white); color:var(--black); overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+nav { display:flex; align-items:center; justify-content:space-between; padding:0 32px; height:74px; border-bottom:3px solid var(--black); background:#fff; position:sticky; top:0; z-index:10; }
+.brand { display:flex; align-items:center; gap:8px; font-weight:900; font-size:20px; letter-spacing:-.02em; }
+.brand .c { width:22px; height:22px; border-radius:50%; background:var(--red); }
+.brand .s { width:22px; height:22px; background:var(--blue); }
+.brand .t { width:0; height:0; border-left:12px solid transparent; border-right:12px solid transparent; border-bottom:22px solid var(--yellow); }
+.links { display:flex; gap:44px; font-weight:700; font-size:13px; letter-spacing:.06em; }
+.right { display:flex; gap:12px; }
+.btn { display:inline-block; padding:12px 26px; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase; border:3px solid var(--black); transition:.15s; }
+.btn-red { background:var(--red); color:#fff; box-shadow:4px 4px 0 var(--black); }
+.btn-out { background:#fff; border-radius:999px; box-shadow:4px 4px 0 var(--black); }
+.btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--black); }
+.hero { display:grid; grid-template-columns:1fr 1fr; min-height:calc(100vh - 74px); border-bottom:3px solid var(--black); }
+.left { padding:80px 48px 60px 60px; position:relative; overflow:hidden; }
+.left::before { content:""; position:absolute; top:-60px; left:-60px; width:130px; height:130px; border-radius:50%; background:var(--yellow); opacity:.7; }
+h1 { font-weight:900; font-size:clamp(52px,7.5vw,104px); line-height:.9; letter-spacing:-.03em; text-transform:uppercase; position:relative; z-index:2; margin-right:-90px; }
+.lead { border-left:5px solid var(--red); padding-left:22px; margin-top:40px; font-size:19px; line-height:1.6; max-width:380px; }
+.ctas { display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
+.right-side { background:var(--blue); position:relative; overflow:hidden; background-image:radial-gradient(rgba(255,255,255,.18) 1.2px, transparent 1.2px); background-size:22px 22px; border-left:3px solid var(--black); }
+.shape { position:absolute; border:3px solid var(--black); }
+.sun { width:300px; height:300px; border-radius:50%; background:var(--yellow); right:12%; top:22%; box-shadow:10px 10px 0 var(--black); }
+.diamond { width:260px; height:260px; background:var(--red); left:12%; top:42%; transform:rotate(35deg); box-shadow:10px 10px 0 var(--black); }
+.card { width:180px; height:180px; background:#fff; left:38%; top:45%; display:grid; place-items:center; box-shadow:10px 10px 0 var(--black); }
+.card i { width:0; height:0; border-left:28px solid transparent; border-right:28px solid transparent; border-bottom:48px solid var(--black); display:block; }
+.bar-strip { position:absolute; bottom:40px; left:0; right:0; height:24px; background:repeating-linear-gradient(90deg,var(--black) 0 24px,transparent 24px 48px); opacity:.85; }
+.ticker { background:var(--black); color:#fff; padding:18px 0; font-weight:900; font-size:22px; letter-spacing:.04em; white-space:nowrap; overflow:hidden; }
+.ticker div { display:inline-block; animation:scroll 22s linear infinite; }
+.ticker span { color:var(--yellow); margin:0 22px; }
+@keyframes scroll { to { transform:translateX(-50%); } }
+.feats { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:3px solid var(--black); }
+.feat { padding:60px 44px; border-right:3px solid var(--black); }
+.feat:last-child { border-right:none; }
+.feat:nth-child(1) { background:#fff; }
+.feat:nth-child(2) { background:var(--yellow); }
+.feat:nth-child(3) { background:#fff; }
+.feat .num { font-weight:900; font-size:72px; line-height:1; }
+.feat .ico { width:56px; height:56px; border:3px solid var(--black); margin:26px 0 20px; }
+.feat:nth-child(1) .ico { background:var(--red); border-radius:50%; }
+.feat:nth-child(2) .ico { background:var(--blue); }
+.feat:nth-child(3) .ico { background:var(--black); clip-path:polygon(50% 0,100% 100%,0 100%); border:none; }
+.feat h3 { font-weight:900; font-size:26px; text-transform:uppercase; letter-spacing:-.01em; margin-bottom:10px; }
+.feat p { font-size:17px; line-height:1.6; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:3px solid var(--black); }
+.stats div { padding:46px 30px; border-right:3px solid var(--black); }
+.stats div:last-child { border-right:none; }
+.stats b { font-weight:900; font-size:60px; letter-spacing:-.03em; display:block; line-height:1; }
+.stats span { font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
+.stats div:nth-child(1) b { color:var(--red); } .stats div:nth-child(2) b { color:var(--blue); } .stats div:nth-child(4) b { color:var(--red); }
+.cta { background:var(--red); color:#fff; padding:100px 60px; display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap; border-bottom:3px solid var(--black); }
+.cta h2 { font-weight:900; font-size:clamp(40px,5.5vw,76px); line-height:.92; text-transform:uppercase; max-width:700px; }
+.cta .btn { background:var(--yellow); color:var(--black); font-size:16px; padding:18px 36px; }
+footer { padding:30px 32px; display:flex; justify-content:space-between; font-weight:700; font-size:13px; letter-spacing:.06em; flex-wrap:wrap; gap:12px; }
+@media (max-width:900px) {
+  .links { display:none; }
+  .hero { grid-template-columns:1fr; }
+  h1 { margin-right:0; }
+  .right-side { min-height:420px; border-left:none; border-top:3px solid var(--black); }
+  .sun { width:200px; height:200px; } .diamond { width:170px; height:170px; } .card { width:120px; height:120px; }
+  .feats, .stats { grid-template-columns:1fr; }
+  .feat, .stats div { border-right:none; border-bottom:3px solid var(--black); }
+  .left { padding:50px 24px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand"><span class="c"></span><span class="s"></span><span class="t"></span>&nbsp;SHAPEWORKS</div>
+  <div class="links"><a href="#">PRODUCT</a><a href="#">SOLUTIONS</a><a href="#">PRICING</a></div>
+  <div class="right"><a href="#" class="btn btn-out">LOG IN</a><a href="#" class="btn btn-red">GET STARTED</a></div>
+</nav>
+
+<header class="hero">
+  <div class="left">
+    <h1>Transform the way your team works</h1>
+    <p class="lead">Shapeworks brings your team together with powerful tools designed to streamline workflows, boost productivity, and drive results.</p>
+    <div class="ctas"><a href="#" class="btn btn-red">Start free trial →</a><a href="#" class="btn btn-out">Watch demo</a></div>
+  </div>
+  <div class="right-side">
+    <div class="shape sun"></div>
+    <div class="shape diamond"></div>
+    <div class="shape card"><i></i></div>
+    <div class="bar-strip"></div>
+  </div>
+</header>
+
+<div class="ticker"><div>
+  FORM FOLLOWS FUNCTION <span>●</span> BUILD BOLDER <span>■</span> SHIP FASTER <span>▲</span> WORK SMARTER <span>●</span> FORM FOLLOWS FUNCTION <span>■</span> BUILD BOLDER <span>▲</span> SHIP FASTER <span>●</span> WORK SMARTER <span>■</span>
+  FORM FOLLOWS FUNCTION <span>●</span> BUILD BOLDER <span>■</span> SHIP FASTER <span>▲</span> WORK SMARTER <span>●</span> FORM FOLLOWS FUNCTION <span>■</span> BUILD BOLDER <span>▲</span> SHIP FASTER <span>●</span> WORK SMARTER <span>■</span>
+</div></div>
+
+<section class="feats">
+  <div class="feat"><div class="num">01</div><div class="ico"></div><h3>Plan</h3><p>Map out every project with crystal-clear structure. No noise. Just pure, purposeful planning.</p></div>
+  <div class="feat"><div class="num">02</div><div class="ico"></div><h3>Build</h3><p>Powerful tools that get out of your way. Build faster with workflows designed for real teams.</p></div>
+  <div class="feat"><div class="num">03</div><div class="ico"></div><h3>Ship</h3><p>Launch with confidence. Real-time insights keep everyone aligned from idea to impact.</p></div>
+</section>
+
+<section class="stats">
+  <div><b>50K+</b><span>Teams</span></div>
+  <div><b>3×</b><span>Faster delivery</span></div>
+  <div><b>99.9%</b><span>Uptime</span></div>
+  <div><b>24/7</b><span>Support</span></div>
+</section>
+
+<section class="cta">
+  <h2>Bold teams build with Shapeworks.</h2>
+  <a href="#" class="btn">Start building →</a>
+</section>
+
+<footer><span>© 2026 SHAPEWORKS INC.</span><span>PRIVACY — TERMS — CONTACT</span></footer>
+</body>
+</html>
